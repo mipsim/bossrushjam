@@ -11,12 +11,9 @@ config_version=5
 [application]
 
 config/name="Boss Rush Jam"
+run/main_scene="res://scenes/Gameplay.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/icon.svg"
-
-[autoload]
-
-Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -44,10 +41,6 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 animations/join_default="res://addons/dialogic/Modules/Character/DefaultAnimations/fade_in_up.gd"
 animations/leave_default="res://addons/dialogic/Modules/Character/DefaultAnimations/fade_out_down.gd"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [input]
 

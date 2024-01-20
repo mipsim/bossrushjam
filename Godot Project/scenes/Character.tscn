@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqebejgbe17vp"]
+
+[ext_resource type="Texture2D" uid="uid://bg1ouwoapru6a" path="res://assets/characters/char_temp.png" id="1_qohv4"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.05176e-05, 1.00012)
+scale = Vector2(0.287387, 0.287387)
+texture = ExtResource("1_qohv4")
