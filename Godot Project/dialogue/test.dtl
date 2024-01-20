@@ -1,0 +1,12 @@
+[update_position position="1" vector="Vector2(-250, 0)" time="0.0"]
+[update_position position="3" vector="Vector2(200, 0)" time="0.0"]
+join merchant 1
+merchant: Today's the day! I'm going to open my own store in the big city.
+join adventurer1 3
+adventurer1: Excuse me. Would you happen to be a merchant?
+merchant: Why yes I am! How can I help you?
+adventurer1: A monster is blocking the way to the next town and I need supplies to defeat it.
+merchant: Then you came to the right person. Give me a second a to unpack.
+leave merchant
+[signal arg="test_finished"]
+merchant: As you can see, I have plenty of helpful items available for sale.

@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://nfeibb4a2cat"]
+
+[ext_resource type="Script" path="res://scripts/DialogicTriggers-Menu1.gd" id="1_2mut7"]
+[ext_resource type="Script" path="res://shopmenu.gd" id="1_3rj57"]
+[ext_resource type="Texture2D" uid="uid://bkj15an7c1m74" path="res://assets/ui/menu-selection-temp.png" id="2_2q6bv"]
+[ext_resource type="Texture2D" uid="uid://du7mdv88kmld7" path="res://assets/ui/icon_sword.png" id="3_ida5t"]
+[ext_resource type="Texture2D" uid="uid://d3ytpu5r12qqr" path="res://assets/ui/icon_armor.png" id="4_c3mnf"]
+[ext_resource type="Texture2D" uid="uid://byoqgjasr83r2" path="res://assets/ui/icon_tome.png" id="5_65n0b"]
+[ext_resource type="Texture2D" uid="uid://dy8c0cmm6kvrx" path="res://assets/ui/icon_potion.png" id="6_im5y8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialogic" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2mut7")
+
+[node name="Menu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_3rj57")
+pointer = NodePath("../Pointer")
+
+[node name="TextureButton" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = ExtResource("3_ida5t")
+
+[node name="TextureButton2" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = ExtResource("4_c3mnf")
+
+[node name="TextureButton3" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = ExtResource("5_65n0b")
+
+[node name="TextureButton4" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = ExtResource("6_im5y8")
+
+[node name="Pointer" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-26, -25)
+scale = Vector2(0.1375, 0.1375)
+texture = ExtResource("2_2q6bv")
+
+[connection signal="mouse_entered" from="Menu/TextureButton" to="Dialogic" method="_on_texture_button_mouse_entered"]
+[connection signal="pressed" from="Menu/TextureButton" to="Dialogic" method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="Menu/TextureButton2" to="Dialogic" method="_on_texture_button_2_mouse_entered"]
+[connection signal="mouse_entered" from="Menu/TextureButton3" to="Dialogic" method="_on_texture_button_3_mouse_entered"]
+[connection signal="mouse_entered" from="Menu/TextureButton4" to="Dialogic" method="_on_texture_button_4_mouse_entered"]
