@@ -5,8 +5,6 @@ extends Node2D
 @onready var randomPicker = $RandomPicker
 
 func _ready():
-	for n in range(5):
-		print(n)
 	randomize()
 
 func _physics_process(delta):

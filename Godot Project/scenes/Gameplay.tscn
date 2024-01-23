@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://esraclnf4ele"]
+[gd_scene load_steps=110 format=3 uid="uid://esraclnf4ele"]
 
 [ext_resource type="Texture2D" uid="uid://b7ubseoq1i1v" path="res://assets/environment/gameplaybg_temp.png" id="1_d2lun"]
 [ext_resource type="Script" path="res://scripts/RightScreen.gd" id="2_37ki0"]
@@ -107,6 +107,7 @@
 [ext_resource type="Texture2D" uid="uid://dp3tiwljpeif1" path="res://assets/prop/Cards/QD.png" id="56_csec3"]
 [ext_resource type="Texture2D" uid="uid://cvowiwjjp1jni" path="res://assets/prop/Cards/QH.png" id="57_s2rxv"]
 [ext_resource type="Texture2D" uid="uid://b8oqwwqss7ue" path="res://assets/prop/Cards/QS.png" id="58_mn3cy"]
+[ext_resource type="Texture2D" uid="uid://bp8pjk2ltt2ld" path="res://assets/prop/Cards/Empty.png" id="96_vwbdx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0cdr"]
 animations = [{
@@ -430,7 +431,10 @@ animations = [{
 "name": &"AS",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_vwbdx")
+}],
 "loop": true,
 "name": &"Empty",
 "speed": 5.0
@@ -558,7 +562,7 @@ items_list = [ExtResource("6_fb50k"), ExtResource("5_ww8nc"), ExtResource("4_1kj
 position = Vector2(860, 308)
 scale = Vector2(0.31, 0.31)
 sprite_frames = SubResource("SpriteFrames_p0cdr")
-animation = &"10S"
+animation = &"Empty"
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
