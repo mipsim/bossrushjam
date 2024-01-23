@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RandomItem" load_steps=2 format=3 uid="uid://bm5dcnpr2edln"]
+
+[ext_resource type="Script" path="res://scripts/RandomItem.gd" id="1_hgv62"]
+
+[resource]
+script = ExtResource("1_hgv62")
+VALUE = "4S"
+PICK_CHANCE = 1
+can_be_picked = true
