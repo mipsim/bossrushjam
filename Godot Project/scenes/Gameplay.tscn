@@ -559,8 +559,40 @@ items_list = [ExtResource("6_fb50k"), ExtResource("5_ww8nc"), ExtResource("4_1kj
 [node name="Card1" type="Node2D" parent="RightScreen"]
 
 [node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card1"]
-position = Vector2(860, 308)
-scale = Vector2(0.31, 0.31)
+position = Vector2(636, 548)
+scale = Vector2(0.211, 0.211)
+sprite_frames = SubResource("SpriteFrames_p0cdr")
+animation = &"Empty"
+
+[node name="Card2" type="Node2D" parent="RightScreen"]
+
+[node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card2"]
+position = Vector2(749, 548.937)
+scale = Vector2(0.211, 0.211)
+sprite_frames = SubResource("SpriteFrames_p0cdr")
+animation = &"Empty"
+
+[node name="Card3" type="Node2D" parent="RightScreen"]
+
+[node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card3"]
+position = Vector2(863, 549)
+scale = Vector2(0.211, 0.211)
+sprite_frames = SubResource("SpriteFrames_p0cdr")
+animation = &"Empty"
+
+[node name="Card4" type="Node2D" parent="RightScreen"]
+
+[node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card4"]
+position = Vector2(976, 549)
+scale = Vector2(0.211, 0.211)
+sprite_frames = SubResource("SpriteFrames_p0cdr")
+animation = &"Empty"
+
+[node name="Card5" type="Node2D" parent="RightScreen"]
+
+[node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card5"]
+position = Vector2(1088, 548.937)
+scale = Vector2(0.211, 0.211)
 sprite_frames = SubResource("SpriteFrames_p0cdr")
 animation = &"Empty"
 
