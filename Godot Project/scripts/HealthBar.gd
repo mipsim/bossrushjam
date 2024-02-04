@@ -14,9 +14,11 @@ func _set_health(new_health):
 		pass
 	
 	if health < prev_health:
+		get_parent().get_parent().get_node("Boss/CharacterBody2D/AnimatedSprite2D").animation = "hurt"
 		timer.start()
 	else:
 		damage_bar.value = health
+		
 
 func init_health(_health):
 	health = _health
@@ -28,3 +30,4 @@ func init_health(_health):
 
 func _on_timer_timeout():
 	damage_bar.value = health
+	get_parent().get_parent().get_node("Boss/CharacterBody2D/AnimatedSprite2D").animation = "default"

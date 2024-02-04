@@ -1,4 +1,5 @@
 # TO-DO
+# 2 pairs
 # Polish
 
 extends Node2D
@@ -372,6 +373,7 @@ func _on_card_1_button_pressed():
 	else:
 		selected_cards[0] = false
 		get_node("Card1/Frames").position.y = 548
+		get_node("Card1/Frames").modulate = Color(0.8, 0.8, 0.8, 1)
 
 func _on_card_2_button_pressed():
 	if !selected_cards[1]:
@@ -380,6 +382,7 @@ func _on_card_2_button_pressed():
 	else:
 		selected_cards[1] = false
 		get_node("Card2/Frames").position.y = 548
+		get_node("Card2/Frames").modulate = Color(0.8, 0.8, 0.8, 1)
 
 func _on_card_3_button_pressed():
 	if !selected_cards[2]:
@@ -388,6 +391,7 @@ func _on_card_3_button_pressed():
 	else:
 		selected_cards[2] = false
 		get_node("Card3/Frames").position.y = 548
+		get_node("Card3/Frames").modulate = Color(0.8, 0.8, 0.8, 1)
 
 func _on_card_4_button_pressed():
 	if !selected_cards[3]:
@@ -396,6 +400,7 @@ func _on_card_4_button_pressed():
 	else:
 		selected_cards[3] = false
 		get_node("Card4/Frames").position.y = 548
+		get_node("Card4/Frames").modulate = Color(0.8, 0.8, 0.8, 1)
 
 func _on_card_5_button_pressed():
 	if !selected_cards[4]:
@@ -404,6 +409,7 @@ func _on_card_5_button_pressed():
 	else:
 		selected_cards[4] = false
 		get_node("Card5/Frames").position.y = 548
+		get_node("Card5/Frames").modulate = Color(0.8, 0.8, 0.8, 1)
 
 # Cards get gray tint when mouse hovers over them
 func _on_card_1_button_mouse_entered():
