@@ -274,6 +274,24 @@ func cardsScore():
 	#DEBUG
 	print("Selected values" + str(selected_values))
 	print("Current sum " + str(current_sum))
+	
+	# 3/4/5 consecutive numbers
+	if isConsecutiveSequence(selected_values, 3):
+		if selected_values == ["6", "7", "8"]:
+			get_node("AttackDamage").set_text("HAND OF 21 AND 3 IN A ROW!")
+			attack = 42
+			validAction = true
+		get_node("AttackDamage").set_text("3 in a row!!!")
+		attack = current_sum
+		validAction = true
+	if isConsecutiveSequence(selected_values, 4):
+		get_node("AttackDamage").set_text("4 in a row!!!!")
+		attack = current_sum
+		validAction = true
+	if isConsecutiveSequence(selected_values, 5):
+		get_node("AttackDamage").set_text("5 in a row!!!!!")
+		attack = current_sum
+		validAction = true
 
 func getDuplicates(array_to_check: Array) -> int:
 	var duplicate_count = 0
@@ -299,6 +317,40 @@ func areAllValuesSame(array_to_check: Array) -> bool:
 			return false
 	
 	return true
+
+func isConsecutiveSequence(array_to_check: Array, consecutive_length: int) -> bool:
+	var card_dict = {
+		"A": 1,
+		"2": 2,
+		"3": 3,
+		"4": 4,
+		"5": 5,
+		"6": 6,
+		"7": 7,
+		"8": 8,
+		"9": 9,
+		"10": 10,
+		"J": 11,
+		"Q": 12,
+		"K": 13
+	}
+	var numeric_values = []
+	for value in array_to_check:
+		numeric_values.append(card_dict[value])
+	
+	numeric_values.sort()
+	print(numeric_values)
+	
+	var consecutive_count = 1
+	for i in range(1, numeric_values.size()):
+		if numeric_values[i] - numeric_values[i - 1] == 1:
+			consecutive_count += 1
+			if consecutive_count >= consecutive_length:
+				return true
+		else:
+			consecutive_count = 1
+	
+	return false
 
 # Cards enter "selected_cards" array and move up/down when clicked
 func _on_card_1_button_pressed():
