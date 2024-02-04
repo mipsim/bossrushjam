@@ -1,5 +1,5 @@
-#TO-DO
-# 1. Detect 3/4/5 consecutive numbers
+# TO-DO
+# Polish
 
 extends Node2D
 
@@ -38,15 +38,26 @@ func _ready():
 	card_values[4] = get_cardName(result5)
 
 func _physics_process(delta):
-	get_node("DevAtkDmg").set_text("Dev - Attack Damage = " + str(attack))
-	get_node("DevBssHth").set_text("Dev - Boss Health = " + str(bossHealth))
+	get_node("DevAtkDmg").set_text("Current Attack: " + str(attack))
+	get_node("BossHealthBar")._set_health(bossHealth)
 	
 	cardsScore()
 	
 	if validAction:
-		#DEBUG
-		get_node("DevVldAct").set_text("Spacebar is OK")
 		
+		# Show valid combo as green
+		if selected_cards[0]:
+			get_node("Card1/Frames").modulate = Color(0, 1, 0, 1)
+		if selected_cards[1]:
+			get_node("Card2/Frames").modulate = Color(0, 1, 0, 1)
+		if selected_cards[2]:
+			get_node("Card3/Frames").modulate = Color(0, 1, 0, 1)
+		if selected_cards[3]:
+			get_node("Card4/Frames").modulate = Color(0, 1, 0, 1)
+		if selected_cards[4]:
+			get_node("Card5/Frames").modulate = Color(0, 1, 0, 1)
+		
+		# Main Stuff
 		if Input.is_action_just_pressed("debug_r"): #spacebar
 			if attack > 0:
 				bossHealth -= attack
@@ -58,6 +69,7 @@ func _physics_process(delta):
 					get_node("Card1/Frames").animation = str(result1)
 					card_values[0] = get_cardName(result1)
 					get_node("Card1/Frames").position.y = 548
+					get_node("Card1/Frames").modulate = Color(1, 1, 1, 1)
 					selected_cards[0] = false
 				
 				if selected_cards[1]:
@@ -65,6 +77,7 @@ func _physics_process(delta):
 					get_node("Card2/Frames").animation = str(result2)
 					card_values[1] = get_cardName(result2)
 					get_node("Card2/Frames").position.y = 548
+					get_node("Card2/Frames").modulate = Color(1, 1, 1, 1)
 					selected_cards[1] = false
 				
 				if selected_cards[2]:
@@ -72,6 +85,7 @@ func _physics_process(delta):
 					get_node("Card3/Frames").animation = str(result3)
 					card_values[2] = get_cardName(result3)
 					get_node("Card3/Frames").position.y = 548
+					get_node("Card3/Frames").modulate = Color(1, 1, 1, 1)
 					selected_cards[2] = false
 				
 				if selected_cards[3]:
@@ -79,6 +93,7 @@ func _physics_process(delta):
 					get_node("Card4/Frames").animation = str(result4)
 					card_values[3] = get_cardName(result4)
 					get_node("Card4/Frames").position.y = 548
+					get_node("Card4/Frames").modulate = Color(1, 1, 1, 1)
 					selected_cards[3] = false
 				
 				if selected_cards[4]:
@@ -86,6 +101,7 @@ func _physics_process(delta):
 					get_node("Card5/Frames").animation = str(result5)
 					card_values[4] = get_cardName(result5)
 					get_node("Card5/Frames").position.y = 548
+					get_node("Card5/Frames").modulate = Color(1, 1, 1, 1)
 					selected_cards[4] = false
 			else:
 				var result1 = randomPicker.pick_random_item()
@@ -110,12 +126,23 @@ func _physics_process(delta):
 			
 			damageSent = false
 	else: # if invalid action
-		#DEBUG
-		get_node("DevVldAct").set_text("Invalid Action! Hand has been redrawn")
+		
+		# Show invalid action as yellow
+		if selected_cards[0]:
+			get_node("Card1/Frames").modulate = Color(1, 1, 0, 1)
+		if selected_cards[1]:
+			get_node("Card2/Frames").modulate = Color(1, 1, 0, 1)
+		if selected_cards[2]:
+			get_node("Card3/Frames").modulate = Color(1, 1, 0, 1)
+		if selected_cards[3]:
+			get_node("Card4/Frames").modulate = Color(1, 1, 0, 1)
+		if selected_cards[4]:
+			get_node("Card5/Frames").modulate = Color(1, 1, 0, 1)
 		
 		if Input.is_action_just_pressed("debug_r"): #spacebar
 			if selected_cards[0]:
 				get_node("Card1/Frames").position.y = 548
+				get_node("Card1/Frames").modulate = Color(1, 1, 1, 1)
 				selected_cards[0] = false
 			var result1 = randomPicker.pick_random_item()
 			get_node("Card1/Frames").animation = str(result1)
@@ -123,6 +150,7 @@ func _physics_process(delta):
 				
 			if selected_cards[1]:
 				get_node("Card2/Frames").position.y = 548
+				get_node("Card2/Frames").modulate = Color(1, 1, 1, 1)
 				selected_cards[1] = false
 			var result2 = randomPicker.pick_random_item()
 			get_node("Card2/Frames").animation = str(result2)
@@ -130,6 +158,7 @@ func _physics_process(delta):
 				
 			if selected_cards[2]:
 				get_node("Card3/Frames").position.y = 548
+				get_node("Card3/Frames").modulate = Color(1, 1, 1, 1)
 				selected_cards[2] = false
 			var result3 = randomPicker.pick_random_item()
 			get_node("Card3/Frames").animation = str(result3)
@@ -137,6 +166,7 @@ func _physics_process(delta):
 				
 			if selected_cards[3]:
 				get_node("Card4/Frames").position.y = 548
+				get_node("Card4/Frames").modulate = Color(1, 1, 1, 1)
 				selected_cards[3] = false
 			var result4 = randomPicker.pick_random_item()
 			get_node("Card4/Frames").animation = str(result4)
@@ -144,6 +174,7 @@ func _physics_process(delta):
 				
 			if selected_cards[4]:
 				get_node("Card5/Frames").position.y = 548
+				get_node("Card5/Frames").modulate = Color(1, 1, 1, 1)
 				selected_cards[4] = false
 			var result5 = randomPicker.pick_random_item()
 			get_node("Card5/Frames").animation = str(result5)
@@ -231,26 +262,14 @@ func cardsScore():
 		1:
 			attack = 20
 			validAction = true
-			
-			#DEBUG
-			get_node("AttackDamage").set_text("2 of a kind!!")
 		2:
 			attack = 60
 			validAction = true
-			
-			#DEBUG
-			get_node("AttackDamage").set_text("3 of a kind!!!")
 		3:
 			attack = 120
 			validAction = true
-			
-			#DEBUG
-			get_node("AttackDamage").set_text("4 of a kind!!!!")
 		0:
 			attack = 0
-			
-			#DEBUG
-			get_node("AttackDamage").set_text("Unable to attack :(")
 	
 	# Sum = 21
 	var current_sum = 0
@@ -267,9 +286,6 @@ func cardsScore():
 	if current_sum == 21:
 		attack = 21
 		validAction = true
-		
-		#DEBUG
-		get_node("AttackDamage").set_text("Hand of 21!")
 	
 	#DEBUG
 	print("Selected values" + str(selected_values))
@@ -278,18 +294,14 @@ func cardsScore():
 	# 3/4/5 consecutive numbers
 	if isConsecutiveSequence(selected_values, 3):
 		if selected_values == ["6", "7", "8"]:
-			get_node("AttackDamage").set_text("HAND OF 21 AND 3 IN A ROW!")
 			attack = 42
 			validAction = true
-		get_node("AttackDamage").set_text("3 in a row!!!")
 		attack = current_sum
 		validAction = true
 	if isConsecutiveSequence(selected_values, 4):
-		get_node("AttackDamage").set_text("4 in a row!!!!")
 		attack = current_sum
 		validAction = true
 	if isConsecutiveSequence(selected_values, 5):
-		get_node("AttackDamage").set_text("5 in a row!!!!!")
 		attack = current_sum
 		validAction = true
 
@@ -320,7 +332,7 @@ func areAllValuesSame(array_to_check: Array) -> bool:
 
 func isConsecutiveSequence(array_to_check: Array, consecutive_length: int) -> bool:
 	var card_dict = {
-		"A": 1,
+		"1": 1,
 		"2": 2,
 		"3": 3,
 		"4": 4,
