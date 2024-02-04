@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://esraclnf4ele"]
+[gd_scene load_steps=113 format=3 uid="uid://esraclnf4ele"]
 
 [ext_resource type="Texture2D" uid="uid://b7ubseoq1i1v" path="res://assets/environment/gameplaybg_temp.png" id="1_d2lun"]
 [ext_resource type="Script" path="res://scripts/RightScreen.gd" id="2_37ki0"]
@@ -110,6 +110,7 @@
 [ext_resource type="Texture2D" uid="uid://bp8pjk2ltt2ld" path="res://assets/prop/Cards/Empty.png" id="96_vwbdx"]
 [ext_resource type="PackedScene" uid="uid://c4xr4nhwh35i8" path="res://scenes/Player.tscn" id="109_sogxl"]
 [ext_resource type="PackedScene" uid="uid://8tx4v4uhgwlu" path="res://scenes/Boss.tscn" id="110_abb6g"]
+[ext_resource type="AudioStream" uid="uid://wrpdqo83fbq8" path="res://assets/environment/exchange.mp3" id="111_464ve"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0cdr"]
 animations = [{
@@ -720,6 +721,11 @@ offset_bottom = 40.0
 position = Vector2(285, 594)
 
 [node name="Boss" parent="." instance=ExtResource("110_abb6g")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("111_464ve")
+volume_db = -9.369
+autoplay = true
 
 [connection signal="mouse_entered" from="RightScreen/Card1/Frames/Card1Button" to="RightScreen" method="_on_card_1_button_mouse_entered"]
 [connection signal="mouse_exited" from="RightScreen/Card1/Frames/Card1Button" to="RightScreen" method="_on_card_1_button_mouse_exited"]
