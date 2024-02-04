@@ -52,7 +52,7 @@ func _physics_process(delta):
 		if currentLifetime < 0.5:
 			position += transform.y * speed * delta
 		elif currentLifetime >= 1:
-			position += transform.y * speed * delta * 2
+			position += transform.y * speed * delta * 1.5
 			
 		
 
