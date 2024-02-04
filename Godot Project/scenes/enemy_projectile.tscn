@@ -1,25 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu56spd3kslkq"]
+[gd_scene load_steps=7 format=3 uid="uid://cu56spd3kslkq"]
 
-[ext_resource type="Texture2D" uid="uid://duegnjv4l5yxq" path="res://assets/prop/bossbullet_temp.png" id="1_aywiw"]
 [ext_resource type="Script" path="res://scripts/enemy_projectile.gd" id="1_fxi12"]
+[ext_resource type="Texture2D" uid="uid://cpw4h40e27n3e" path="res://assets/prop/heart.png" id="2_fdtu5"]
+[ext_resource type="Texture2D" uid="uid://8b4rvx758m4c" path="res://assets/prop/spade.png" id="3_3hnu5"]
+[ext_resource type="Texture2D" uid="uid://dkynarcsqc3q7" path="res://assets/prop/club.png" id="4_5k4hh"]
+[ext_resource type="Texture2D" uid="uid://cry8n0giirsvk" path="res://assets/prop/diamond.png" id="5_ix7fw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvblq"]
-radius = 19.0
-height = 46.0
+radius = 35.0
+height = 70.0
 
 [node name="Enemy Projectile" type="Area2D"]
 script = ExtResource("1_fxi12")
-speed = 1000
+speed = 150
+suitSprites = [ExtResource("2_fdtu5"), ExtResource("3_3hnu5"), ExtResource("4_5k4hh"), ExtResource("5_ix7fw"), ExtResource("4_5k4hh")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0746888, 0.0746887)
-texture = ExtResource("1_aywiw")
+texture = ExtResource("2_fdtu5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yvblq")
 
 [node name="Lifetime Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 4.0
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Lifetime Timer" to="." method="_on_lifetime_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://8tx4v4uhgwlu"]
+
+[ext_resource type="Script" path="res://scripts/BossController.gd" id="1_r56ik"]
+[ext_resource type="Texture2D" uid="uid://cb7optedesevb" path="res://assets/characters/bossbaby.png" id="2_ffkxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypu66"]
+
+[node name="Boss" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_r56ik")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ffkxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_ypu66")
+disabled = true
