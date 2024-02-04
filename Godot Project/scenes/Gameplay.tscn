@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://esraclnf4ele"]
+[gd_scene load_steps=113 format=3 uid="uid://esraclnf4ele"]
 
 [ext_resource type="Texture2D" uid="uid://b7ubseoq1i1v" path="res://assets/environment/gameplaybg_temp.png" id="1_d2lun"]
 [ext_resource type="Script" path="res://scripts/RightScreen.gd" id="2_37ki0"]
@@ -108,6 +108,9 @@
 [ext_resource type="Texture2D" uid="uid://cvowiwjjp1jni" path="res://assets/prop/Cards/QH.png" id="57_s2rxv"]
 [ext_resource type="Texture2D" uid="uid://b8oqwwqss7ue" path="res://assets/prop/Cards/QS.png" id="58_mn3cy"]
 [ext_resource type="Texture2D" uid="uid://bp8pjk2ltt2ld" path="res://assets/prop/Cards/Empty.png" id="96_vwbdx"]
+[ext_resource type="PackedScene" uid="uid://c4xr4nhwh35i8" path="res://scenes/Player.tscn" id="109_sogxl"]
+[ext_resource type="PackedScene" uid="uid://8tx4v4uhgwlu" path="res://scenes/Boss.tscn" id="110_abb6g"]
+[ext_resource type="AudioStream" uid="uid://wrpdqo83fbq8" path="res://assets/environment/exchange.mp3" id="111_464ve"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0cdr"]
 animations = [{
@@ -556,6 +559,46 @@ script = ExtResource("2_37ki0")
 script = ExtResource("3_jmdao")
 items_list = [ExtResource("6_fb50k"), ExtResource("5_ww8nc"), ExtResource("4_1kjp6"), ExtResource("5_4c3s4"), ExtResource("8_t02ir"), ExtResource("9_q5nw1"), ExtResource("10_lnakg"), ExtResource("11_ab38a"), ExtResource("12_joudp"), ExtResource("13_m31d4"), ExtResource("14_rth3x"), ExtResource("15_r6xii"), ExtResource("16_fv6uk"), ExtResource("17_xwfvi"), ExtResource("18_cnat2"), ExtResource("19_ndup7"), ExtResource("20_jtulk"), ExtResource("21_j5lkn"), ExtResource("22_a1cbv"), ExtResource("23_noj4s"), ExtResource("24_inb15"), ExtResource("25_c8obp"), ExtResource("26_n2bbr"), ExtResource("27_eub6c"), ExtResource("28_l3gqe"), ExtResource("29_ng58t"), ExtResource("30_vd725"), ExtResource("31_pgte7"), ExtResource("32_a7c56"), ExtResource("33_6mf6r"), ExtResource("34_1w5xn"), ExtResource("35_2nbdj"), ExtResource("36_8ofd8"), ExtResource("37_gvtf3"), ExtResource("38_hnh0v"), ExtResource("39_wuoou"), ExtResource("40_pbbg1"), ExtResource("41_w87yq"), ExtResource("42_88e1v"), ExtResource("43_d4tld"), ExtResource("44_j6u1p"), ExtResource("45_mbhem"), ExtResource("46_3tfwt"), ExtResource("47_sn2qy"), ExtResource("48_q26t7"), ExtResource("49_csnxe"), ExtResource("50_do2wk"), ExtResource("51_56xom"), ExtResource("52_7edbp"), ExtResource("53_dxeyo"), ExtResource("54_8tlek"), ExtResource("55_tb43p")]
 
+[node name="DevText" type="Label" parent="RightScreen"]
+offset_left = 676.0
+offset_top = 92.0
+offset_right = 1064.0
+offset_bottom = 115.0
+text = "Spacebar to send attack & shuffle remaining cards"
+horizontal_alignment = 1
+
+[node name="DevVldAct" type="Label" parent="RightScreen"]
+offset_left = 676.0
+offset_top = 121.0
+offset_right = 1064.0
+offset_bottom = 144.0
+text = "Is Spacebar Valid?"
+horizontal_alignment = 1
+
+[node name="DevAtkDmg" type="Label" parent="RightScreen"]
+offset_left = 676.0
+offset_top = 232.0
+offset_right = 1064.0
+offset_bottom = 255.0
+text = "Dev - Attack Damage ="
+horizontal_alignment = 1
+
+[node name="DevBssHth" type="Label" parent="RightScreen"]
+offset_left = 676.0
+offset_top = 263.0
+offset_right = 1064.0
+offset_bottom = 286.0
+text = "Dev - Boss Health ="
+horizontal_alignment = 1
+
+[node name="AttackDamage" type="Label" parent="RightScreen"]
+offset_left = 679.0
+offset_top = 171.0
+offset_right = 1067.0
+offset_bottom = 194.0
+text = "Attack Status:"
+horizontal_alignment = 1
+
 [node name="Card1" type="Node2D" parent="RightScreen"]
 
 [node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card1"]
@@ -578,14 +621,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 flat = true
 
-[node name="Label" type="Label" parent="RightScreen/Card1"]
-offset_left = 614.0
-offset_top = 442.0
-offset_right = 654.0
-offset_bottom = 465.0
-text = "10"
-horizontal_alignment = 1
-
 [node name="Card2" type="Node2D" parent="RightScreen"]
 
 [node name="Frames" type="AnimatedSprite2D" parent="RightScreen/Card2"]
@@ -594,13 +629,17 @@ scale = Vector2(0.211, 0.211)
 sprite_frames = SubResource("SpriteFrames_p0cdr")
 animation = &"Empty"
 
-[node name="Label" type="Label" parent="RightScreen/Card2"]
-offset_left = 729.0
-offset_top = 442.0
-offset_right = 769.0
-offset_bottom = 465.0
-text = "10"
-horizontal_alignment = 1
+[node name="Card2Button" type="Button" parent="RightScreen/Card2/Frames"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -363.0
+offset_right = -250.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Card3" type="Node2D" parent="RightScreen"]
 
@@ -610,13 +649,17 @@ scale = Vector2(0.211, 0.211)
 sprite_frames = SubResource("SpriteFrames_p0cdr")
 animation = &"Empty"
 
-[node name="Label" type="Label" parent="RightScreen/Card3"]
-offset_left = 843.0
-offset_top = 442.0
-offset_right = 883.0
-offset_bottom = 465.0
-text = "10"
-horizontal_alignment = 1
+[node name="Card3Button" type="Button" parent="RightScreen/Card3/Frames"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -363.0
+offset_right = -250.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Card4" type="Node2D" parent="RightScreen"]
 
@@ -626,13 +669,17 @@ scale = Vector2(0.211, 0.211)
 sprite_frames = SubResource("SpriteFrames_p0cdr")
 animation = &"Empty"
 
-[node name="Label" type="Label" parent="RightScreen/Card4"]
-offset_left = 953.0
-offset_top = 442.0
-offset_right = 993.0
-offset_bottom = 465.0
-text = "10"
-horizontal_alignment = 1
+[node name="Card4Button" type="Button" parent="RightScreen/Card4/Frames"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -363.0
+offset_right = -250.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Card5" type="Node2D" parent="RightScreen"]
 
@@ -642,7 +689,20 @@ scale = Vector2(0.211, 0.211)
 sprite_frames = SubResource("SpriteFrames_p0cdr")
 animation = &"Empty"
 
+[node name="Card5Button" type="Button" parent="RightScreen/Card5/Frames"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -363.0
+offset_right = -250.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [node name="Label" type="Label" parent="RightScreen/Card5"]
+visible = false
 offset_left = 1067.0
 offset_top = 442.0
 offset_right = 1107.0
@@ -657,6 +717,28 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Player" parent="." instance=ExtResource("109_sogxl")]
+position = Vector2(285, 594)
+
+[node name="Boss" parent="." instance=ExtResource("110_abb6g")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("111_464ve")
+volume_db = -9.369
+autoplay = true
+
 [connection signal="mouse_entered" from="RightScreen/Card1/Frames/Card1Button" to="RightScreen" method="_on_card_1_button_mouse_entered"]
 [connection signal="mouse_exited" from="RightScreen/Card1/Frames/Card1Button" to="RightScreen" method="_on_card_1_button_mouse_exited"]
 [connection signal="pressed" from="RightScreen/Card1/Frames/Card1Button" to="RightScreen" method="_on_card_1_button_pressed"]
+[connection signal="mouse_entered" from="RightScreen/Card2/Frames/Card2Button" to="RightScreen" method="_on_card_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightScreen/Card2/Frames/Card2Button" to="RightScreen" method="_on_card_2_button_mouse_exited"]
+[connection signal="pressed" from="RightScreen/Card2/Frames/Card2Button" to="RightScreen" method="_on_card_2_button_pressed"]
+[connection signal="mouse_entered" from="RightScreen/Card3/Frames/Card3Button" to="RightScreen" method="_on_card_3_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightScreen/Card3/Frames/Card3Button" to="RightScreen" method="_on_card_3_button_mouse_exited"]
+[connection signal="pressed" from="RightScreen/Card3/Frames/Card3Button" to="RightScreen" method="_on_card_3_button_pressed"]
+[connection signal="mouse_entered" from="RightScreen/Card4/Frames/Card4Button" to="RightScreen" method="_on_card_4_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightScreen/Card4/Frames/Card4Button" to="RightScreen" method="_on_card_4_button_mouse_exited"]
+[connection signal="pressed" from="RightScreen/Card4/Frames/Card4Button" to="RightScreen" method="_on_card_4_button_pressed"]
+[connection signal="mouse_entered" from="RightScreen/Card5/Frames/Card5Button" to="RightScreen" method="_on_card_5_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightScreen/Card5/Frames/Card5Button" to="RightScreen" method="_on_card_5_button_mouse_exited"]
+[connection signal="pressed" from="RightScreen/Card5/Frames/Card5Button" to="RightScreen" method="_on_card_5_button_pressed"]
