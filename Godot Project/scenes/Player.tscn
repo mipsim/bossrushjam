@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dggfnfrwebmoo" path="res://assets/characters/spongebob.jpg" id="2_gqy4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rq0c1"]
+size = Vector2(186, 60)
 
 [node name="Player" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -12,6 +13,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_b1nph")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_rq0c1")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
