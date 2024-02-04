@@ -1,6 +1,6 @@
 [gd_scene load_steps=113 format=3 uid="uid://esraclnf4ele"]
 
-[ext_resource type="Texture2D" uid="uid://b7ubseoq1i1v" path="res://assets/environment/gameplaybg_temp.png" id="1_d2lun"]
+[ext_resource type="Texture2D" uid="uid://cuh0xr5172ypo" path="res://assets/environment/left_bg.jpg" id="1_ybnm6"]
 [ext_resource type="Script" path="res://scripts/RightScreen.gd" id="2_37ki0"]
 [ext_resource type="Texture2D" uid="uid://cep2d0ym6agtj" path="res://assets/prop/Cards/2C.png" id="2_s0vak"]
 [ext_resource type="Script" path="res://scripts/RandomPicker.gd" id="3_jmdao"]
@@ -108,9 +108,9 @@
 [ext_resource type="Texture2D" uid="uid://cvowiwjjp1jni" path="res://assets/prop/Cards/QH.png" id="57_s2rxv"]
 [ext_resource type="Texture2D" uid="uid://b8oqwwqss7ue" path="res://assets/prop/Cards/QS.png" id="58_mn3cy"]
 [ext_resource type="Texture2D" uid="uid://bp8pjk2ltt2ld" path="res://assets/prop/Cards/Empty.png" id="96_vwbdx"]
-[ext_resource type="PackedScene" uid="uid://c4xr4nhwh35i8" path="res://scenes/Player.tscn" id="109_sogxl"]
-[ext_resource type="PackedScene" uid="uid://8tx4v4uhgwlu" path="res://scenes/Boss.tscn" id="110_abb6g"]
-[ext_resource type="AudioStream" uid="uid://wrpdqo83fbq8" path="res://assets/environment/exchange.mp3" id="111_464ve"]
+[ext_resource type="PackedScene" uid="uid://q06j8ojx7hj5" path="res://scenes/Player.tscn" id="109_sogxl"]
+[ext_resource type="PackedScene" uid="uid://u6udisqaw2x" path="res://scenes/Boss.tscn" id="110_abb6g"]
+[ext_resource type="AudioStream" uid="uid://wrpdqo83fbq8" path="res://assets/audio/exchange.mp3" id="111_464ve"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0cdr"]
 animations = [{
@@ -542,9 +542,9 @@ animations = [{
 [node name="Gameplay" type="Node2D"]
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(575, 324)
-scale = Vector2(1.12109, 1.07333)
-texture = ExtResource("1_d2lun")
+position = Vector2(295.547, 482.52)
+scale = Vector2(2.79233, 2.3651)
+texture = ExtResource("1_ybnm6")
 
 [node name="LeftScreen" type="Node2D" parent="."]
 
@@ -718,7 +718,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource("109_sogxl")]
-position = Vector2(285, 594)
+z_index = 1
+position = Vector2(285, 545)
+scale = Vector2(1, 1)
 
 [node name="Boss" parent="." instance=ExtResource("110_abb6g")]
 

@@ -1,6 +1,6 @@
 #TO-DO
-# 1. if player presses spaces on an invalid action - reset hand
-# 2. if deck is going to be empty after redrawing hand (e.g. showing red cards), reshuffle entire deck then draw
+# 1. Detect 3/4/5 consecutive numbers
+# 2. Detect if values in array sum to 21
 
 extends Node2D
 
@@ -113,7 +113,43 @@ func _physics_process(delta):
 	else:
 		#DEBUG
 		get_node("DevVldAct").set_text("Invalid Action! Hand has been redrawn")
-		pass
+		
+		if Input.is_action_just_pressed("debug_r"): #spacebar
+			if selected_cards[0]:
+				get_node("Card1/Frames").position.y = 548
+				selected_cards[0] = false
+			var result1 = randomPicker.pick_random_item()
+			get_node("Card1/Frames").animation = str(result1)
+			card_values[0] = get_cardValue(result1)
+				
+				
+			if selected_cards[1]:
+				get_node("Card2/Frames").position.y = 548
+				selected_cards[1] = false
+			var result2 = randomPicker.pick_random_item()
+			get_node("Card2/Frames").animation = str(result2)
+			card_values[1] = get_cardValue(result2)
+				
+			if selected_cards[2]:
+				get_node("Card3/Frames").position.y = 548
+				selected_cards[2] = false
+			var result3 = randomPicker.pick_random_item()
+			get_node("Card3/Frames").animation = str(result3)
+			card_values[2] = get_cardValue(result3)
+				
+			if selected_cards[3]:
+				get_node("Card4/Frames").position.y = 548
+				selected_cards[3] = false
+			var result4 = randomPicker.pick_random_item()
+			get_node("Card4/Frames").animation = str(result4)
+			card_values[3] = get_cardValue(result4)
+				
+			if selected_cards[4]:
+				get_node("Card5/Frames").position.y = 548
+				selected_cards[4] = false
+			var result5 = randomPicker.pick_random_item()
+			get_node("Card5/Frames").animation = str(result5)
+			card_values[4] = get_cardValue(result5)
 
 func get_cardValue(cardName):
 	var cardValue = 0
