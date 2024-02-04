@@ -660,7 +660,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource("109_sogxl")]
-position = Vector2(102, 525)
+position = Vector2(285, 594)
 
 [node name="Boss" parent="." instance=ExtResource("110_abb6g")]
 
