@@ -1,8 +1,9 @@
-[gd_scene load_steps=113 format=3 uid="uid://esraclnf4ele"]
+[gd_scene load_steps=115 format=3 uid="uid://esraclnf4ele"]
 
-[ext_resource type="Texture2D" uid="uid://b7ubseoq1i1v" path="res://assets/environment/gameplaybg_temp.png" id="1_d2lun"]
+[ext_resource type="Texture2D" uid="uid://cuh0xr5172ypo" path="res://assets/environment/left_bg.jpg" id="1_ybnm6"]
 [ext_resource type="Script" path="res://scripts/RightScreen.gd" id="2_37ki0"]
 [ext_resource type="Texture2D" uid="uid://cep2d0ym6agtj" path="res://assets/prop/Cards/2C.png" id="2_s0vak"]
+[ext_resource type="Texture2D" uid="uid://dvlhlanqr4j5k" path="res://assets/ui/instructions.png" id="2_tnchm"]
 [ext_resource type="Script" path="res://scripts/RandomPicker.gd" id="3_jmdao"]
 [ext_resource type="Texture2D" uid="uid://ueiemy1rylry" path="res://assets/prop/Cards/2D.png" id="3_xnkqy"]
 [ext_resource type="Resource" uid="uid://r1qi73otqa3o" path="res://resources/2H.tres" id="4_1kjp6"]
@@ -108,9 +109,10 @@
 [ext_resource type="Texture2D" uid="uid://cvowiwjjp1jni" path="res://assets/prop/Cards/QH.png" id="57_s2rxv"]
 [ext_resource type="Texture2D" uid="uid://b8oqwwqss7ue" path="res://assets/prop/Cards/QS.png" id="58_mn3cy"]
 [ext_resource type="Texture2D" uid="uid://bp8pjk2ltt2ld" path="res://assets/prop/Cards/Empty.png" id="96_vwbdx"]
-[ext_resource type="PackedScene" uid="uid://c4xr4nhwh35i8" path="res://scenes/Player.tscn" id="109_sogxl"]
-[ext_resource type="PackedScene" uid="uid://8tx4v4uhgwlu" path="res://scenes/Boss.tscn" id="110_abb6g"]
-[ext_resource type="AudioStream" uid="uid://wrpdqo83fbq8" path="res://assets/environment/exchange.mp3" id="111_464ve"]
+[ext_resource type="PackedScene" uid="uid://q06j8ojx7hj5" path="res://scenes/Player.tscn" id="109_sogxl"]
+[ext_resource type="PackedScene" uid="uid://u6udisqaw2x" path="res://scenes/Boss.tscn" id="110_abb6g"]
+[ext_resource type="AudioStream" uid="uid://wrpdqo83fbq8" path="res://assets/audio/exchange.mp3" id="111_464ve"]
+[ext_resource type="PackedScene" uid="uid://v7w84dd8kfnd" path="res://scenes/BossHealthBar.tscn" id="112_yat5q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0cdr"]
 animations = [{
@@ -542,9 +544,13 @@ animations = [{
 [node name="Gameplay" type="Node2D"]
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(575, 324)
-scale = Vector2(1.12109, 1.07333)
-texture = ExtResource("1_d2lun")
+position = Vector2(295.547, 482.52)
+scale = Vector2(2.79233, 2.3651)
+texture = ExtResource("1_ybnm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(862, 224)
+texture = ExtResource("2_tnchm")
 
 [node name="LeftScreen" type="Node2D" parent="."]
 
@@ -559,44 +565,12 @@ script = ExtResource("2_37ki0")
 script = ExtResource("3_jmdao")
 items_list = [ExtResource("6_fb50k"), ExtResource("5_ww8nc"), ExtResource("4_1kjp6"), ExtResource("5_4c3s4"), ExtResource("8_t02ir"), ExtResource("9_q5nw1"), ExtResource("10_lnakg"), ExtResource("11_ab38a"), ExtResource("12_joudp"), ExtResource("13_m31d4"), ExtResource("14_rth3x"), ExtResource("15_r6xii"), ExtResource("16_fv6uk"), ExtResource("17_xwfvi"), ExtResource("18_cnat2"), ExtResource("19_ndup7"), ExtResource("20_jtulk"), ExtResource("21_j5lkn"), ExtResource("22_a1cbv"), ExtResource("23_noj4s"), ExtResource("24_inb15"), ExtResource("25_c8obp"), ExtResource("26_n2bbr"), ExtResource("27_eub6c"), ExtResource("28_l3gqe"), ExtResource("29_ng58t"), ExtResource("30_vd725"), ExtResource("31_pgte7"), ExtResource("32_a7c56"), ExtResource("33_6mf6r"), ExtResource("34_1w5xn"), ExtResource("35_2nbdj"), ExtResource("36_8ofd8"), ExtResource("37_gvtf3"), ExtResource("38_hnh0v"), ExtResource("39_wuoou"), ExtResource("40_pbbg1"), ExtResource("41_w87yq"), ExtResource("42_88e1v"), ExtResource("43_d4tld"), ExtResource("44_j6u1p"), ExtResource("45_mbhem"), ExtResource("46_3tfwt"), ExtResource("47_sn2qy"), ExtResource("48_q26t7"), ExtResource("49_csnxe"), ExtResource("50_do2wk"), ExtResource("51_56xom"), ExtResource("52_7edbp"), ExtResource("53_dxeyo"), ExtResource("54_8tlek"), ExtResource("55_tb43p")]
 
-[node name="DevText" type="Label" parent="RightScreen"]
-offset_left = 676.0
-offset_top = 92.0
-offset_right = 1064.0
-offset_bottom = 115.0
-text = "Spacebar to send attack & shuffle remaining cards"
-horizontal_alignment = 1
-
-[node name="DevVldAct" type="Label" parent="RightScreen"]
-offset_left = 676.0
-offset_top = 121.0
-offset_right = 1064.0
-offset_bottom = 144.0
-text = "Is Spacebar Valid?"
-horizontal_alignment = 1
-
 [node name="DevAtkDmg" type="Label" parent="RightScreen"]
-offset_left = 676.0
-offset_top = 232.0
-offset_right = 1064.0
-offset_bottom = 255.0
-text = "Dev - Attack Damage ="
-horizontal_alignment = 1
-
-[node name="DevBssHth" type="Label" parent="RightScreen"]
-offset_left = 676.0
-offset_top = 263.0
-offset_right = 1064.0
-offset_bottom = 286.0
-text = "Dev - Boss Health ="
-horizontal_alignment = 1
-
-[node name="AttackDamage" type="Label" parent="RightScreen"]
-offset_left = 679.0
-offset_top = 171.0
-offset_right = 1067.0
-offset_bottom = 194.0
-text = "Attack Status:"
+offset_left = 672.0
+offset_top = 421.0
+offset_right = 1060.0
+offset_bottom = 444.0
+text = "Current Attack: 0"
 horizontal_alignment = 1
 
 [node name="Card1" type="Node2D" parent="RightScreen"]
@@ -710,6 +684,12 @@ offset_bottom = 465.0
 text = "10"
 horizontal_alignment = 1
 
+[node name="BossHealthBar" parent="RightScreen" instance=ExtResource("112_yat5q")]
+offset_left = 194.0
+offset_top = 30.0
+offset_right = 561.0
+offset_bottom = 52.0
+
 [node name="UI" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -718,7 +698,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource("109_sogxl")]
-position = Vector2(285, 594)
+z_index = 1
+position = Vector2(285, 545)
+scale = Vector2(1, 1)
 
 [node name="Boss" parent="." instance=ExtResource("110_abb6g")]
 
